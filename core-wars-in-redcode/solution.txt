@@ -1,0 +1,24 @@
+https://www.youtube.com/watch?v=VqUeXdclhBI&list=RDCMUCNc-Wa_ZNBAGzFkYbAHw9eg&index=2
+#which piece of ram to move to where
+MOV origin, destination (copy)
+ADD amount, destination (relative destination)
+JMP destination
+
+0
+1
+2   MOV 5,6  # <- instruction pointer
+3   ADD #1, 5 #went 5 ahead, not address 5
+4   ADD #1, 4
+5   ADD #1, 3
+6   JMP -4
+7   DAT #0 #executing a DAT section is segmentation fault, quit
+8   DAT #3  #was 0, then 1, then 2, then 3.  moved in line 2
+9
+10
+11  MOV 0, 1 # <- enemy
+12
+13
+14
+15
+
+#first i do MOV 5, 6
