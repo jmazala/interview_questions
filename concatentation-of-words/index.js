@@ -1,22 +1,22 @@
-
+//https://www.youtube.com/watch?v=QGVCnjXmrNg
 function findAllConcatenatedWords(words) {
-  const wordsSet = new Set(words);
-  const cache = {};
+  const wordsSet = new Set(words);//SPACE O(n)
+  const cache = {};  //SPACE O(n)
 
-  return words.filter(word => {
+  return words.filter(word => { //TIME O(n)
     return canForm(word, wordsSet, cache);
   });
 }
 
 function canForm(word, wordsSet, cache) {
-  if (cache[word]) {
+  if (cache[word]) { //O(1)
     return cache[word];
   }
 
-  for (let i = 1; i < word.length; i++) {
+  for (let i = 1; i < word.length; i++) { //O(m)
     prefix = word.slice(0, i);
     suffix = word.slice(i);
-    if (wordsSet.has(prefix)) {
+    if (wordsSet.has(prefix)) { //O(1)
       if (wordsSet.has(suffix) || canForm(suffix, wordsSet, cache)) {
         cache[word] = true;
         return true;
