@@ -56,25 +56,22 @@ public class Solution {
     }
   }
 
-  // using priority queue
-  // public static int[] sortedSquaredArray(int[] nums) {
-  // int[] answer = new int[nums.length];
-  // PriorityQueue<Integer> minHeap = new PriorityQueue<>((a, b) -> Math.abs(a) -
-  // Math.abs(b));
-  // for (int num : nums) {
-  // minHeap.add(num);
-  // }
+  // using heap
+  public static int[] sortedSquaredArrayHeap(int[] nums) {
+    int[] answer = new int[nums.length];
+    PriorityQueue<Integer> minHeap = new PriorityQueue<>();
+    for (int num : nums) {
+      minHeap.add(num * num);
+    }
 
-  // for (int i = 0; i < answer.length; i++) {
-  // int num = minHeap.remove();
-  // answer[i] = num * num;
-  // }
-
-  // return answer;
-  // }
+    for (int i = 0; i < answer.length; i++) {
+      answer[i] = minHeap.remove();
+    }
+    return answer;
+  }
 
   public static void main(String[] args) {
-    System.out.println(Arrays.toString(Solution.sortedSquaredArray(new int[] { -3, -1, 2, 5, 10 })));
     System.out.println(Arrays.toString(Solution.sortedSquaredArray(new int[] { -3, -1, 0, 2, 5, 10 })));
+    System.out.println(Arrays.toString(Solution.sortedSquaredArrayHeap(new int[] { -3, -1, 0, 2, 5, 10, 11 })));
   }
 }
