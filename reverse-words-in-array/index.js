@@ -28,15 +28,15 @@ function reverseWordsInArray(arr) {
     end = start;
   }
 
-  return arr;
+  return arr.join('');
 
   function reverse(start, end) {
-    for (let i = start; i < Math.round((start + end) / 2); i++) {
-      const temp = arr[i];
-      arr[i] = arr[end - start - i];
+    for (let i = 0; i < Math.round((end - start)) / 2; i++) {
+      const temp = arr[start + i];
+      arr[start + i] = arr[end - i];
       arr[end - i] = temp;
     }
   }
 }
 
-reverseWordsInArray(Array.from("perfect makes practice"))
+console.log(reverseWordsInArray(Array.from("perfect makes practice")));
