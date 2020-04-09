@@ -15,7 +15,7 @@ public class Solution {
   }
 
   public static String reverseSentence(String s) {
-    return reverseString(s, 0, s.length() - 1);
+    return Solution.reverseSentence(s, 0, s.length() - 1);
   }
   
   public static String reverseSentence(String s, int start, int end) {
@@ -40,4 +40,3 @@ public class Solution {
     System.out.println(Solution.reverseCharArray(new char[] {'t', 'o', 'p', 'a', 'e', 't', ' ', 'e', 'l', 't', 't', 'i', 'l', ' ', 'a', ' ', 'm', '\'', 'I'}));
   }
 }
-
