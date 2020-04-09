@@ -23,9 +23,10 @@ function minimumSpaces(s, favoriteWords) {
 
     let answer = Number.MAX_SAFE_INTEGER;
 
-    prefix = '';
+    let prefix = '';
     for (let i = pos; i < N; i++) {
       prefix += s[i];
+
       if (wordsSet.has(prefix)) {
         const other = check(i + 1); //try to split after position j.  means take this one.
         if (other > -1) {
@@ -47,7 +48,7 @@ console.log(minimumSpaces(input, favNumbers)); //3
 
 const input2 = '123456789';
 const favNumbers2 = ['1', '234', '1234', '56789', '9', '123456789'];
-console.log(minimumSpaces(input2, favNumbers2));
+console.log(minimumSpaces(input2, favNumbers2)); //0
 //sample output:
 //3 .  least number of spaces added to match most number of favorites
 // (314 15926535897 9323 8462643383279)
