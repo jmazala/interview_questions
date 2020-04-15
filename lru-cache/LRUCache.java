@@ -40,15 +40,17 @@ public class LRUCache {
   }
 
   public String get(int key) {
-    if (hash.containsKey(key)) {
-      LRUCacheItem item = hash.get(key);
-      minHeap.remove(item);
-      item.updateLastAccessedTime();
-      minHeap.add(item);
-      return item.value;
+    LRUCacheItem item = hash.get(key);
+    if (item == null) {
+      return null;
     }
 
-    return null;
+    // unfortunately, the heap doesn't magically re-sort itself
+    // based on updating the object in the hash
+    minHeap.remove(item);
+    item.updateLastAccessedTime();
+    minHeap.add(item);
+    return item.value;
   }
 
   public static void main(String[] args) {
