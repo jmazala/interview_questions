@@ -22,6 +22,11 @@ function findLongestSubstringOfKDistinct(string, k) {
     charCounts[c]++;
     current.push(c);
 
+    //we need exactly k distinct characters, not up to k
+    if (objSize(charCounts) < k) {
+      continue;
+    }
+
     //adjust our sliding window if we've exceeded k chars
     while (objSize(charCounts) > k) {
       const removedChar = current.shift();
@@ -73,6 +78,8 @@ console.log(findLongestSubstringOfKDistinct('abbaaabddccdddcgge', 0)); // ''
 console.log(findLongestSubstringOfKDistinct('abbaaabddccdddcgge', 1)); // 'aaa' or 'ddd'
 console.log(findLongestSubstringOfKDistinct('abbaaabddccdddcgge', 2)); // 'ddccdddc'
 console.log(findLongestSubstringOfKDistinct('abbaaabddccdddcgge', 3)); // 'ddccdddcgg'
+
+console.log(findLongestSubstringOfKDistinct('aaa', 2)); // ''
 
 /*
 
