@@ -1,12 +1,13 @@
 //https://start.interviewing.io/feedback/tIE1HyPSYovX
 
+//USING SLIDING WINDOW
 const objSize = o => Object.keys(o).length;
 
 function findLongestSubstringOfKDistinct(string, k) {
   if (k === 0 || string.length === 0) {
     return '';
   }
-  
+
   const charCounts = {};
   const current = [];
   let answer = [];
@@ -40,7 +41,6 @@ function findLongestSubstringOfKDistinct(string, k) {
 
 //BRUTE FORCE NAIVE
 // function findLongestSubstringOfKDistinct(string, k) {
-//   //brute force approach 
 //   let answer = '';
 //   for (let i = 0; i < string.length; i++) {
 //     const current = helper(i);
@@ -52,23 +52,20 @@ function findLongestSubstringOfKDistinct(string, k) {
 //   return answer;
 
 //   function helper(i) {
-//     let longest = '';
-//     let set = new Set();
+//     const longest = [];
+//     const set = new Set();
+
 //     while (i < string.length) {
 //       const c = string[i++];
 //       set.add(c);
 //       if (set.size > k) {
-//         return longest;
+//         return longest.join('');
 //       }
 
-//       longest += c;
+//       longest.push(c);
 //     }
 
-//     if (set.size === k) {
-//       return longest;
-//     }
-
-//     return '';
+//     return set.size === k ? longest.join('') : '';
 //   }
 // }
 
