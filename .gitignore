@@ -1,2 +1,4 @@
 .vscode
 */*.class
+.eslintrc.json
+.prettierrc
